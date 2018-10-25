@@ -7,7 +7,6 @@ Simple and easy to use boilerplate for using hasura's graphql engine with react.
 * apollo-boost
 * react-apollo
 * react-router
-* react-router
 * Bootstrap v3.37
 * font-awesome icons
 
