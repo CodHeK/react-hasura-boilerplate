@@ -14,15 +14,13 @@ Simple and easy to use boilerplate for using hasura's graphql engine with react.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Install all the npm packages first.
+Clone the repo first then install all the npm packages using
 
 ```
 $ npm install
 ```
 
-once all the dependencies are installed, you're ready to go!
+Once all the dependencies are installed, you're ready to go!
 
 ```
 $ npm start
