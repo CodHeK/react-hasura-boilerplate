@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 
-export const FetchAllRoomsQuery = gql`
-  // your graphql query here
+// your graphql query here
+export const yourgraphqlQuery = gql`
+
 `;
