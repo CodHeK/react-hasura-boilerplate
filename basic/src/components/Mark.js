@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { checkNameExistQuery, checkNameDoesNotExistQuery } from '../queries/Queries';
+import $ from 'jquery'
 import '../App.css';
 
 
@@ -18,14 +19,26 @@ class Mark extends Component {
           {
             ({ loading, error, data }) => {
               if(loading)
-                return <span></span>;
+                return <span>checking ...</span>;
               if(error)
                 return <p>error</p>
 
               if(data.users.length === 0)
-                return <i class="fas fa-check" style={{ color: 'green', fontSize: '20px' }}></i>;
+                return <div>
+                          <i className="fas fa-check" style={{ color: 'green', fontSize: '20px' }}></i>
+                          <br />
+                          <p>username available</p>
+                          <br />
+                          <p>( press ENTER to SignUp )</p>
+                          <br />
+                          <a href="/todos" className="btn btn-default login">ENTER</a>
+                       </div>;
 
-              return <i class="fas fa-times" style={{ color: 'red', fontSize: '20px' }}></i>;
+              console.log(data.users[0].id);
+              return <div>
+                      <p>you already have an account</p>
+                      <a href={"/dashboard/" + data.users[0].id} className="btn btn-default logged-in">LOGIN</a>
+                    </div>;
             }
           }
         </Query>

@@ -36,9 +36,6 @@ class Login extends Component {
             <div className="container login-main">
               <input placeholder="Enter your name..." className="input-bar form-control" onChange={this.inpData.bind(this)} onKeyPress={this.addName.bind(this, addname)} /> &nbsp;&nbsp; <Mark name={this.state.inp_data} />
               <br />
-              <p>( press ENTER to continue )</p>
-              <br />
-              <a href="/todos" className="btn btn-default login">ENTER</a>
             </div>
           )
         }

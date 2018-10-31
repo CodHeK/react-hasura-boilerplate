@@ -25,6 +25,12 @@ p {
   border-radius: 10px;
 }
 
+.logged-in {
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
 .login-main {
   text-align: center;
   margin: 0 auto;
