@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { checkNameExistQuery, checkNameDoesNotExistQuery } from '../queries/Queries';
+import { checkNameExistQuery } from '../queries/Queries';
 import $ from 'jquery'
 import '../App.css';
 
@@ -23,7 +23,10 @@ class Mark extends Component {
               if(error)
                 return <p>error</p>
 
-              if(data.users.length === 0)
+              if(data.users.length === 0 && name == "")
+                return <span></span>;
+
+              if(data.users.length === 0 && name != "")
                 return <div>
                           <i className="fas fa-check" style={{ color: 'green', fontSize: '20px' }}></i>
                           <br />
@@ -31,12 +34,9 @@ class Mark extends Component {
                           <br />
                           <p>( press ENTER to SignUp )</p>
                           <br />
-                          <a href="/todos" className="btn btn-default login">ENTER</a>
                        </div>;
 
-              console.log(data.users[0].id);
               return <div>
-                      <p>you already have an account</p>
                       <a href={"/dashboard/" + data.users[0].id} className="btn btn-default logged-in">LOGIN</a>
                     </div>;
             }
