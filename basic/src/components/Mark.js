@@ -37,7 +37,7 @@ class Mark extends Component {
                        </div>;
 
               return <div>
-                      <a href={"/dashboard/" + data.users[0].id} className="btn btn-default logged-in">LOGIN</a>
+                      <a href={"/dashboard/" + data.users[0].name + "/" + data.users[0].id} className="btn btn-default logged-in">LOGIN</a>
                     </div>;
             }
           }

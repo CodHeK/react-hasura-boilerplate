@@ -35,3 +35,15 @@ p {
   text-align: center;
   margin: 0 auto;
 }
+
+.todos {
+  height: 115px;
+  width: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  line-height: 75px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1em;
+}

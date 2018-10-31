@@ -32,15 +32,50 @@ export const checkNameExistQuery = gql`
   }
 `;
 
-export const checkNameDoesNotExistQuery = gql`
-  query checkName($name: String!) {
+export const fetchUserQuery = gql`
+  query fetchName($name: String!) {
     users (
-      where: { name: {_neq: $name }},
+      where: { name: {_eq: $name }},
+    ) {
+      name
+    }
+  }
+`;
+
+export const fetchTodosQuery = gql`
+  query fetchTodos($user_id: Int!) {
+    todo (
+      where: { user_id: {_eq: $user_id }, is_completed: { _eq: false }},
+      order_by: id_desc
     ) {
       id
-      name
+      data
+      is_completed
       created_at
-      last_seen
+      updated_at
+      is_public
+    }
+  }
+`;
+
+export const addTodoQuery = gql`
+  mutation addTodo($data: String!, $user_id: Int!) {
+    insert_todo (
+      objects: [
+        {
+          data: $data,
+          user_id: $user_id
+        }
+      ]
+    ) {
+      returning {
+        id
+        data
+        is_completed
+        created_at
+        updated_at
+        is_public
+      }
     }
   }
 `;
