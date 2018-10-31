@@ -36,6 +36,19 @@ p {
   margin: 0 auto;
 }
 
+.cross {
+  color: black;
+  font-size: 20px;
+  float: right;
+  position: relative;
+  margin-left: 2em;
+  margin-top: 0.2em;
+}
+
+.cross:hover {
+  cursor: pointer;
+}
+
 .todos {
   height: 115px;
   width: 500px;
@@ -46,4 +59,18 @@ p {
   margin: 0 auto;
   display: block;
   margin-bottom: 1em;
+}
+
+.todos:hover {
+  cursor: pointer;
+}
+
+.todo-list, .todo-list-completed {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.todo-list-completed h3 {
+  text-decoration: line-through;
 }

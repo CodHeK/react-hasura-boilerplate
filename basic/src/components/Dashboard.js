@@ -4,6 +4,7 @@ import { addTodoQuery, fetchTodosQuery } from '../queries/Queries';
 import Navbar from './Navbar';
 import Mark from './Mark';
 import UnCompletedTodos from './UnCompletedTodos';
+import Completed from './Completed';
 import $ from 'jquery';
 import '../App.css';
 
@@ -33,11 +34,14 @@ class Dashboard extends Component {
               <div className="container login-main">
                 <input placeholder="add a todo ..." className="input-bar form-control" onKeyPress={this.addnewTodo.bind(this, addTodo)} />
                 <br />
+                <p>( click todo to mark completed )</p>
+                <br />
               </div>
             )
           }
         </Mutation>
         <UnCompletedTodos user_id={userID} />
+        <Completed user_id={userID} />
       </div>
     );
   }

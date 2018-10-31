@@ -58,6 +58,22 @@ export const fetchTodosQuery = gql`
   }
 `;
 
+export const fetchTodosCompletedQuery = gql`
+  query fetchTodosCompleted($user_id: Int!) {
+    todo (
+      where: { user_id: {_eq: $user_id }, is_completed: { _eq: true }},
+      order_by: id_desc
+    ) {
+      id
+      data
+      is_completed
+      created_at
+      updated_at
+      is_public
+    }
+  }
+`;
+
 export const addTodoQuery = gql`
   mutation addTodo($data: String!, $user_id: Int!) {
     insert_todo (
@@ -76,6 +92,27 @@ export const addTodoQuery = gql`
         updated_at
         is_public
       }
+    }
+  }
+`;
+
+export const markCompletedQuery = gql`
+  mutation completeTodo($id: Int!) {
+    update_todo (
+      where: { id: { _eq: $id }},
+      _set: { is_completed: true }
+    ) {
+      affected_rows
+    }
+  }
+`;
+
+export const deleteQuery = gql`
+  mutation deleteTodo($id: Int!) {
+    delete_todo(
+      where: {id: { _eq: $id }}
+    ) {
+      affected_rows
     }
   }
 `;

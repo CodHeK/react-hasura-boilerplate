@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Query, Mutation } from "react-apollo";
-import { fetchTodosQuery } from '../queries/Queries';
+import { fetchTodosCompletedQuery } from '../queries/Queries';
 import Todo from './Todo';
 import '../App.css';
 
-class UnCompletedTodos extends Component {
+class Completed extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,7 +12,7 @@ class UnCompletedTodos extends Component {
   render() {
     const { user_id } = this.props;
     return (
-      <Query query={fetchTodosQuery} variables={{ user_id }}>
+      <Query query={fetchTodosCompletedQuery} variables={{ user_id }}>
       {
         ({ loading, error, data }) => {
           if(loading)
@@ -21,7 +21,7 @@ class UnCompletedTodos extends Component {
             return <p>Error </p>;
 
           return data.todo.map((t) => (
-            <div className="todo-list">
+            <div className="todo-list-completed">
               <Todo t={t} user_id={user_id} key={t.id} />
             </div>
           ))
@@ -32,4 +32,4 @@ class UnCompletedTodos extends Component {
   }
 }
 
-export default UnCompletedTodos;
+export default Completed;
