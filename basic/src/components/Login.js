@@ -24,7 +24,6 @@ class Login extends Component {
         refetchQueries: [{ query: checkNameExistQuery, variables: { name: e.target.value } }]
       })
       $(".login").fadeIn(400);
-      e.target.value = "";
     }
   }
 
