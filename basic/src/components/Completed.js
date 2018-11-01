@@ -16,7 +16,7 @@ class Completed extends Component {
       {
         ({ loading, error, data }) => {
           if(loading)
-            return <p>loading ...</p>
+            return <p></p>
           if(error)
             return <p>Error </p>;
 
