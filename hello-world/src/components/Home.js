@@ -10,6 +10,7 @@ class Home extends Component {
         <ul>
           <li>Apollo-client</li>
           <li>React-Router</li>
+          <li>create-react-app v2</li>
           <li>Bootstrap v3.37</li>
           <li>Font-awesome</li>
         </ul>
