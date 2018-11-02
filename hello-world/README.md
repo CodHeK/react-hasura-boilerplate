@@ -1,4 +1,4 @@
-# React-Hasura-Boilerplate
+# React-Hasura-Boilerplate - hello-world
 
 Simple and easy to use boilerplate for using hasura's graphql engine with react.
 
