@@ -21,7 +21,12 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3",
     "request": "^2.88.0",
-    "typename-monkey-patch": "^1.0.1"
+    "apollo-link": "^1.2.2",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-ws": "^1.0.8",
+    "apollo-cache-inmemory": "^1.2.8",
+    "subscriptions-transport-ws": "^0.9.14",
+    "apollo-utilities": "^1.0.19"
   },
   "scripts": {
     "start": "react-scripts start",
