@@ -9,12 +9,18 @@ import '../App.css';
 class Todo extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      comp: 0,
+      created_at: "",
+      updated_at: "",
+    }
   }
 
   markCompleted(completeTodo, id, e) {
     $("#" + id + " h3").css({ 'text-decoration': 'line-through'});
+    var date = new Date();
     completeTodo({
-      variables: { id: id },
+      variables: { id: id, updated_at: date },
       refetchQueries: [{ query: fetchTodosQuery, variables: { user_id: this.props.user_id}}, { query: fetchTodosCompletedQuery, variables: { user_id: this.props.user_id }}]
     })
   }
@@ -24,6 +30,19 @@ class Todo extends Component {
       variables: { id: id },
       refetchQueries: [{ query: fetchTodosQuery, variables: { user_id: this.props.user_id}}, { query: fetchTodosCompletedQuery, variables: { user_id: this.props.user_id }}]
     })
+  }
+
+  func(is_completed, created_at, updated_at) {
+    if(is_completed === false) {
+      return <span>Created at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>;
+    }
+    else {
+      return <div>
+                <span>Created at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>
+                &nbsp;&nbsp;&nbsp;
+                <span>Completed at {updated_at.slice(12, 16)} on {updated_at.slice(0, 10)}</span>
+             </div>;
+    }
   }
 
   render() {
@@ -41,7 +60,7 @@ class Todo extends Component {
                 }
               </Mutation>
               <h3>{t.data}</h3>
-              {"Created at: " + t.created_at.slice(12, 16) + " on " + t.created_at.slice(0, 10)}
+              {this.func(t.is_completed, t.created_at, t.updated_at)}
             </div>
           )
         }

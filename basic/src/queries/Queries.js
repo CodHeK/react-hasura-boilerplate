@@ -97,10 +97,10 @@ export const addTodoQuery = gql`
 `;
 
 export const markCompletedQuery = gql`
-  mutation completeTodo($id: Int!) {
+  mutation completeTodo($id: Int!, $updated_at: timestamptz!) {
     update_todo (
       where: { id: { _eq: $id }},
-      _set: { is_completed: true }
+      _set: { is_completed: true, updated_at: $updated_at }
     ) {
       affected_rows
     }

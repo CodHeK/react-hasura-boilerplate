@@ -17,7 +17,7 @@ This repo includes 3 folders containing boilerplate codes for quickly get to dev
 
 -  advanced :
 
-    This folder is built on top of the `basic` application and includes an Auth0 integration for user authentication.
+    This folder is built on top of the `basic` application and includes an `Auth0` integration for user authentication.
 
       #### Includes:
 
