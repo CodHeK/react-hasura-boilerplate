@@ -34,13 +34,13 @@ class Todo extends Component {
 
   func(is_completed, created_at, updated_at) {
     if(is_completed === false) {
-      return <span>Created at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>;
+      return <span><b>Created</b> at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>;
     }
     else {
       return <div>
-                <span>Created at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>
-                &nbsp;&nbsp;&nbsp;
-                <span>Completed at {updated_at.slice(12, 16)} on {updated_at.slice(0, 10)}</span>
+                <span><b>Created</b> at {created_at.slice(12, 16)} on {created_at.slice(0, 10)}</span>
+                &nbsp;&nbsp;-&nbsp;&nbsp;
+                <span><b>Completed</b> at {updated_at.slice(12, 16)} on {updated_at.slice(0, 10)}</span>
              </div>;
     }
   }
