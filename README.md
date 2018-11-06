@@ -2,11 +2,11 @@
 
 This repo includes 3 folders containing boilerplate codes for quickly get to developing your app logic and not waste time setting up initial configurations.
 
--  hello-world :
+-  __hello-world__ :
 
     This folder contains the basic configurations so that you can clone and start work with apollo-client already set up!
 
--  basic :
+-  __basic__ :
 
     This folder contains examples of how query/mutation/subscription can be made. The examples are written with respect to a todo application.
 
@@ -15,7 +15,7 @@ This repo includes 3 folders containing boilerplate codes for quickly get to dev
        - LogIn / SignUp setup.
        - Todo insert, delete and can mark todos complete.  
 
--  advanced :
+-  __advanced__ :
 
     This folder is built on top of the `basic` application and includes an `Auth0` integration for user authentication.
 
@@ -29,7 +29,7 @@ This repo includes 3 folders containing boilerplate codes for quickly get to dev
 
 ### Installing
 
-Clone the repo first then `cd` into the folder you want to use, install all the npm packages using
+Clone the repo first then `cd` into the folder you want to use as a boilerplate, install all the npm packages using
 
 ```
 $ npm install
