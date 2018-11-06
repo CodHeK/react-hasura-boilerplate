@@ -43,7 +43,7 @@ export const vars = {
 - Go to app `Settings`, open `Reveal Config Vars`, you need to set a few variables mentioned below.
     `HASURA_GRAPHQL_CORS_DOMAIN` - add your app URL.
     `HASURA_GRAPHQL_AUTH_HOOK` - URL of your webhook.
-- For other ![GraphQL server options](https://docs.hasura.io/1.0/graphql/manual/deployment/graphql-engine-flags/reference.html).
+- For other [GraphQL server options](https://docs.hasura.io/1.0/graphql/manual/deployment/graphql-engine-flags/reference.html).
 - Your may deploy your webhhook anywhere you wish to __heroku__ or __glitch__.
 
-To setup your own webhook refer to this ![link](https://github.com/hasura/sample-auth-webhook).
+To setup your own webhook refer to this [link](https://github.com/hasura/sample-auth-webhook).
