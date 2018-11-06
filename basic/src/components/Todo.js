@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import { markCompletedQuery, fetchTodosQuery, fetchTodosCompletedQuery, deleteQuery } from '../queries/Queries';
+import { markCompletedQuery, deleteQuery } from '../queries/Queries';
 import $ from 'jquery'
 import '../App.css';
 
@@ -21,14 +21,12 @@ class Todo extends Component {
     var date = new Date();
     completeTodo({
       variables: { id: id, updated_at: date },
-      refetchQueries: [{ query: fetchTodosQuery, variables: { user_id: this.props.user_id}}, { query: fetchTodosCompletedQuery, variables: { user_id: this.props.user_id }}]
     })
   }
 
   delete(deleteTodo, id, e) {
     deleteTodo({
       variables: { id: id },
-      refetchQueries: [{ query: fetchTodosQuery, variables: { user_id: this.props.user_id}}, { query: fetchTodosCompletedQuery, variables: { user_id: this.props.user_id }}]
     })
   }
 

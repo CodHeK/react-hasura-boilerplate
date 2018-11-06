@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from "react-apollo";
-import { addTodoQuery, fetchTodosQuery } from '../queries/Queries';
+import { addTodoQuery } from '../queries/Queries';
 import Navbar from './Navbar';
 import Mark from './Mark';
 import UnCompletedTodos from './UnCompletedTodos';
@@ -17,7 +17,6 @@ class Dashboard extends Component {
     if(e.which === 13) {
       addTodo({
         variables: { data: e.target.value, user_id: this.props.match.params.userID },
-        refetchQueries: [{ query: fetchTodosQuery, variables: { user_id: this.props.match.params.userID } }]
       })
       e.target.value = "";
     }

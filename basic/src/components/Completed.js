@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Query, Mutation } from "react-apollo";
-import { fetchTodosCompletedQuery } from '../queries/Queries';
+import { Subscription } from "react-apollo";
+import { fetchTodosCompletedSubs } from '../queries/Queries';
 import Todo from './Todo';
 import '../App.css';
 
@@ -12,7 +12,7 @@ class Completed extends Component {
   render() {
     const { user_id } = this.props;
     return (
-      <Query query={fetchTodosCompletedQuery} variables={{ user_id }}>
+      <Subscription subscription={fetchTodosCompletedSubs} variables={{ user_id }}>
       {
         ({ loading, error, data }) => {
           if(loading)
@@ -27,7 +27,7 @@ class Completed extends Component {
           ))
         }
       }
-      </Query>
+      </Subscription>
     )
   }
 }

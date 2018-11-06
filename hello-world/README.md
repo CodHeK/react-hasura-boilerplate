@@ -25,20 +25,20 @@ This is a simple and easy to use boilerplate which gives you start by doing all 
 Also, contains the starter code perform `subscriptions` .
 
 ```
-const GRAPHQL_ENDPOINT = "";
+const httpLink = new HttpLink({
+  uri: "",
+});
 
-// Make WebSocketLink with appropriate url
-const mkWsLink = (uri) => {
-  const splitUri = uri.split('//');
-  const subClient = new SubscriptionClient(
-    'wss://' + splitUri[1], //your websocket endpoint to perform subscriptions.
-    { reconnect: true }
-  );
-  return new WebSocketLink(subClient);
-}
+// Create a WebSocket link:
+const wsLink = new WebSocketLink({
+  uri: ``,
+  options: {
+    reconnect: true
+  }
+});
 
-const httpLink = new HttpLink({ uri: GRAPHQL_ENDPOINT });
-const wsLink = mkWsLink(GRAPHQL_ENDPOINT);
+// using the ability to split links, you can send data to each link
+// depending on what kind of operation is being sent
 const link = split(
   // split based on operation type
   ({ query }) => {
@@ -46,15 +46,13 @@ const link = split(
     return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,
-  httpLink
+  httpLink,
 );
 
 // Instantiate client
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache({
-    addTypename: false
-  })
+  cache: new InMemoryCache()
 })
 ```
 Once the `client` is initialized pass it as a `prop` in the `ApolloProvider` Component.

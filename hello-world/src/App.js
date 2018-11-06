@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ApolloClient from "apollo-boost";
+import { ApolloClient } from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Switch, Link, Route, Redirect } from 'react-router-dom';
 import { HttpLink } from 'apollo-link-http';
@@ -11,20 +11,20 @@ import { getMainDefinition } from 'apollo-utilities';
 import Home from './components/Home';
 import './App.css';
 
-const GRAPHQL_ENDPOINT = "";
+const httpLink = new HttpLink({
+  uri: "",
+});
 
-// Make WebSocketLink with appropriate url
-const mkWsLink = (uri) => {
-  const splitUri = uri.split('//');
-  const subClient = new SubscriptionClient(
-    'wss://' + splitUri[1],
-    { reconnect: true }
-  );
-  return new WebSocketLink(subClient);
-}
+// Create a WebSocket link:
+const wsLink = new WebSocketLink({
+  uri: ``,
+  options: {
+    reconnect: true
+  }
+});
 
-const httpLink = new HttpLink({ uri: GRAPHQL_ENDPOINT });
-const wsLink = mkWsLink(GRAPHQL_ENDPOINT);
+// using the ability to split links, you can send data to each link
+// depending on what kind of operation is being sent
 const link = split(
   // split based on operation type
   ({ query }) => {
@@ -32,15 +32,13 @@ const link = split(
     return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,
-  httpLink
+  httpLink,
 );
 
 // Instantiate client
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache({
-    addTypename: false
-  })
+  cache: new InMemoryCache()
 })
 
 class App extends Component {

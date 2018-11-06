@@ -1,24 +1,6 @@
 import gql from "graphql-tag";
 
-export const addNameQuery = gql`
-  mutation addname($name: String!) {
-    insert_users(
-      objects: [
-        {
-          name: $name,
-        }
-      ]
-    ) {
-      returning {
-        id
-        name
-        created_at
-        last_seen
-      }
-    }
-  }
-`;
-
+//query
 export const checkNameExistQuery = gql`
   query checkName($name: String!) {
     users (
@@ -42,34 +24,22 @@ export const fetchUserQuery = gql`
   }
 `;
 
-export const fetchTodosQuery = gql`
-  query fetchTodos($user_id: Int!) {
-    todo (
-      where: { user_id: {_eq: $user_id }, is_completed: { _eq: false }},
-      order_by: id_desc
+//mutation
+export const addNameQuery = gql`
+  mutation addname($name: String!) {
+    insert_users(
+      objects: [
+        {
+          name: $name,
+        }
+      ]
     ) {
-      id
-      data
-      is_completed
-      created_at
-      updated_at
-      is_public
-    }
-  }
-`;
-
-export const fetchTodosCompletedQuery = gql`
-  query fetchTodosCompleted($user_id: Int!) {
-    todo (
-      where: { user_id: {_eq: $user_id }, is_completed: { _eq: true }},
-      order_by: id_desc
-    ) {
-      id
-      data
-      is_completed
-      created_at
-      updated_at
-      is_public
+      returning {
+        id
+        name
+        created_at
+        last_seen
+      }
     }
   }
 `;
@@ -113,6 +83,39 @@ export const deleteQuery = gql`
       where: {id: { _eq: $id }}
     ) {
       affected_rows
+    }
+  }
+`;
+
+//subscription
+export const fetchTodosUncompletedSubs = gql`
+  subscription fetchTodos($user_id: Int!) {
+    todo (
+      where: { user_id: {_eq: $user_id }, is_completed: { _eq: false }},
+      order_by: id_desc
+    ) {
+      id
+      data
+      is_completed
+      created_at
+      updated_at
+      is_public
+    }
+  }
+`;
+
+export const fetchTodosCompletedSubs = gql`
+  subscription fetchTodosCompleted($user_id: Int!) {
+    todo (
+      where: { user_id: {_eq: $user_id }, is_completed: { _eq: true }},
+      order_by: id_desc
+    ) {
+      id
+      data
+      is_completed
+      created_at
+      updated_at
+      is_public
     }
   }
 `;
