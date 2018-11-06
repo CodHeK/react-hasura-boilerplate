@@ -1,5 +1,7 @@
+import { vars } from './env';
+
 export const AUTH_CONFIG = {
-  domain: 'codhek.auth0.com',
-  clientId: 'CA6e7EkF1oMRvWSo0et1exQT9PDT7nzc',
-  callbackUrl: 'https://todos-hasura.herokuapp.com/callback'
+  domain: vars.DOMAIN,
+  clientId: vars.CLIENT_ID,
+  callbackUrl: vars.CALLBACK_URL
 }

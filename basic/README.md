@@ -192,9 +192,9 @@ The App can be deployed immidiately on `heroku` with no further setup or configu
 
 ##### Login Screen :
 
-![login]('/ss/login.png')
+![login](/ss/login.png)
 
 #
 #### Dashboard :
 
-![dash]('/ss/dash.png')
+![dash](/ss/dash.png)
