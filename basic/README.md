@@ -187,3 +187,14 @@ export const vars = {
 }
 ```
 The App can be deployed immidiately on `heroku` with no further setup or configurations required.
+
+### Screenshots
+
+##### Login Screen :
+
+![login]('/ss/login.png')
+
+#
+#### Dashboard :
+
+![dash]('/ss/dash.png')
