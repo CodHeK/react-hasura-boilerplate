@@ -12,8 +12,8 @@ This repo includes 3 folders containing boilerplate codes for quickly get to dev
 
       #### Includes:
 
-       - LogIn / SignUp setup.
-       - Todo insert, delete and can mark todos complete.  
+       LogIn / SignUp setup.
+       Todo insert, delete and can mark todos complete.  
 
 -  __advanced__ :
 
@@ -21,8 +21,8 @@ This repo includes 3 folders containing boilerplate codes for quickly get to dev
 
       #### Includes:
 
-       - Authentication using Auth0.
-       - Adding, deleting and marking todos complete.
+       Authentication using Auth0.
+       Adding, deleting and marking todos complete.
 
 
 ## Getting Started
