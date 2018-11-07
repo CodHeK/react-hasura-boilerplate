@@ -110,15 +110,17 @@ var hasuraVariables = {
 };
 ```
 
-##### Using the `sub` property :
+#### Using the `sub` property :
 #
 The `sub` property is set when authenticating the user by auth0, it is set in the `localStorage`
 
-property  is `set` in __Auth.js__ :
+##### property  is `set` in __Auth.js__ :
+#
 ```
 localStorage.setItem('sub', authResult.idTokenPayload.sub);
 ```
-property is `get` in __/Components/AddTodo.js__
+##### property is `get` in __/Components/AddTodo.js__
+#
 ```
 const sub = localStorage.getItem('sub');
 ```
@@ -139,7 +141,7 @@ export const vars = {
 #### Hasura console configs :
 - Set permissions for a new role `user`.
 - modify the access control for `insert`, `update`, `delete` and `select` accordingly, refer to this [link](https://docs.hasura.io/1.0/graphql/manual/auth/basics.html) to see how it needs to be done.
-- ![permissions](/advanced/ss/permission.png)
+- ![permissions](/advanced/ss/permissions.png)
 #### Auth0 configs :
 - Go to `Applications` on your auth0 dashboard, set the environment variables accordingly.
 - In the callback url field, use only the url that you have specified in the `Allowed Callback URLs` field in your auth0 dashbaord.
